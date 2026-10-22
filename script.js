@@ -85,16 +85,23 @@ if (enquiryForm) {
   });
 }
 
-if (document.body.classList.contains('home-page')) {
+if (document.body.matches('.home-page, .about-page')) {
   const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
   const word = document.querySelector('.word-current');
-  const words = [
+  const homeWords = [
     {text: 'soar.', color: '#9a671b'},
     {text: 'grow.', color: '#77501b'},
     {text: 'shine.', color: '#a76b12'},
     {text: 'thrive.', color: '#574020'},
     {text: 'excel.', color: '#8c5c16'}
   ];
+  const aboutWords = [
+    {text: 'Growing together.', color: '#9a671b'},
+    {text: 'Learning with joy.', color: '#77501b'},
+    {text: 'Room to flourish.', color: '#a76b12'},
+    {text: 'Ready to soar.', color: '#574020'}
+  ];
+  const words = document.body.classList.contains('about-page') ? aboutWords : homeWords;
   let wordPaused = false;
   const wordToggle = document.querySelector('#headline-toggle');
   let wordIndex = 0;
@@ -117,6 +124,7 @@ if (document.body.classList.contains('home-page')) {
       wordIndex = (wordIndex + 1) % words.length;
       word.textContent = words[wordIndex].text;
       word.style.setProperty('--word-color',words[wordIndex].color);
+      word.closest('.rotating-word')?.setAttribute('aria-label',words[wordIndex].text.replace(/\.$/,''));
       activeAnimation.cancel();
       activeAnimation = word.animate([
         {opacity:0,transform:'translateY(65%) rotateX(-25deg)',filter:'blur(4px)'},
@@ -151,6 +159,7 @@ if (document.body.classList.contains('home-page')) {
       wordIndex = 0;
       word.textContent = words[0].text;
       word.style.setProperty('--word-color',words[0].color);
+      word.closest('.rotating-word')?.setAttribute('aria-label',words[0].text.replace(/\.$/,''));
       sections.forEach(section => section.classList.add('motion-visible'));
       revealObserver.disconnect();
     } else scheduleWord();

@@ -268,3 +268,180 @@ body{font-size:15px;-webkit-font-smoothing:antialiased;text-rendering:optimizeLe
  .about-page .ribbon-group{flex-wrap:wrap;justify-content:center;gap:12px 24px;padding-right:0}
  .about-page .ribbon-track>.ribbon-duplicate{display:none}
 }
+
+/* About page: a quieter editorial layout with stronger spacing and image hierarchy. */
+.about-page .page-hero{position:relative;grid-template-columns:1.08fr .92fr;gap:clamp(38px,7vw,96px);padding-top:58px;padding-bottom:76px}
+.about-page .page-hero>div{max-width:590px}
+.about-page .page-hero .eyebrow{color:#8b6225}
+.about-page .page-hero h1{font-size:clamp(46px,5vw,66px);line-height:1.08;letter-spacing:-3.2px;margin:19px 0 24px}
+.about-page .page-hero p{max-width:490px;margin:0 0 28px;font-size:18px;line-height:1.75;color:#625d54}
+.about-page .page-hero>img{height:470px;border:0;border-radius:150px 22px 22px 22px;box-shadow:0 24px 54px #59451e1b;object-position:center 35%}
+.about-page .about-intro{max-width:100%;padding:78px max(48px,calc((100vw - 1144px)/2)) 76px;background:#f7f1e6;display:grid;grid-template-columns:.72fr 1.28fr;column-gap:80px;align-items:start}
+.about-page .about-intro .eyebrow{grid-column:1;color:#8b6225;padding-top:10px}
+.about-page .about-intro h2{grid-column:2;font-size:clamp(34px,4vw,46px);line-height:1.15;max-width:620px;margin:0 0 18px}
+.about-page .about-intro p{grid-column:2;font-size:17px;line-height:1.85;color:#625d54;max-width:680px;margin:0 0 13px}
+.about-page .activities{padding-top:82px;padding-bottom:80px;border:0}
+.about-page .activities .section-top{margin-bottom:34px}
+.about-page .activities .section-top h2{font-size:clamp(34px,4vw,44px)}
+.about-page .activities .section-top>p{max-width:300px;font-size:16px;line-height:1.75}
+.about-page .activity-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+.about-page .activity-card{border-color:#e9e2d6;border-radius:15px;box-shadow:0 8px 26px #3025150a}
+.about-page .activity-card>img{height:245px;object-fit:cover}
+.about-page .activity-content{padding:22px 23px 25px}
+.about-page .activity-content .eyebrow{color:#8b6225;font-size:9px}
+.about-page .activity-content h3{font-size:19px;letter-spacing:-.35px;margin:12px 0 9px}
+.about-page .activity-content p{font-size:15px;line-height:1.7;color:#6d675e;margin:0}
+.about-page .embed-note{font-size:15px;line-height:1.75;margin-top:23px;color:#6d675e}
+.about-page .campus-story{grid-template-columns:1.08fr .92fr;gap:clamp(38px,7vw,88px);padding-top:20px;padding-bottom:90px}
+.about-page .campus-story>img{height:390px;object-fit:cover;object-position:center 44%;border:0;border-radius:22px}
+.about-page .campus-story h2{font-size:clamp(34px,4vw,44px);margin-top:15px}
+.about-page .campus-story p{font-size:17px;line-height:1.8;max-width:450px}
+@media(max-width:850px){.about-page .page-hero{gap:38px}.about-page .page-hero>img{height:390px}.about-page .about-intro{column-gap:42px;padding-left:32px;padding-right:32px}.about-page .activity-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:650px){.about-page .page-hero{grid-template-columns:1fr;gap:28px;padding-top:27px;padding-bottom:44px}.about-page .page-hero h1{font-size:45px;letter-spacing:-2.3px}.about-page .page-hero p{font-size:17px}.about-page .page-hero>img{height:330px;border-radius:92px 18px 18px 18px}.about-page .about-intro{display:block;padding:48px 22px}.about-page .about-intro h2{font-size:32px;margin:15px 0}.about-page .about-intro p{font-size:16px}.about-page .activities{padding-top:48px;padding-bottom:48px}.about-page .activities .section-top>p{font-size:15px}.about-page .activity-grid{grid-template-columns:1fr;gap:18px}.about-page .activity-card>img{height:260px}.about-page .activity-content{padding:20px}.about-page .activity-content p{font-size:15px}.about-page .campus-story{grid-template-columns:1fr;gap:25px;padding-top:0;padding-bottom:54px}.about-page .campus-story>img{height:300px}.about-page .campus-story p{font-size:16px}}
+
+/* Photo led, caption first activity gallery. */
+.about-page .activities .section-top{align-items:end}
+.about-page .activity-grid{gap:34px 24px}
+.about-page .activity-card{display:block;border:0;border-radius:0;background:transparent;box-shadow:none;overflow:visible;transition:none}
+.about-page .activity-card:hover{transform:none;box-shadow:none}
+.about-page .activity-card>img{display:block;width:100%;height:auto;aspect-ratio:1.22;object-fit:cover;border-radius:10px;filter:saturate(.92) contrast(1.03);transition:filter .35s,transform .5s cubic-bezier(.2,.7,.2,1)}
+.about-page .activity-card:hover>img{transform:translateY(-3px);filter:saturate(1.02) contrast(1.03)}
+.about-page .activity-content{padding:15px 2px 0;display:block}
+.about-page .activity-content .eyebrow{display:block;color:#8b6225;font-size:9px;letter-spacing:1.25px}
+.about-page .activity-content h3{font-size:20px;line-height:1.3;letter-spacing:-.45px;margin:7px 0 0}
+@media(max-width:650px){.about-page .activity-grid{gap:25px}.about-page .activity-card>img{aspect-ratio:1.28}.about-page .activity-content{padding-top:12px}.about-page .activity-content h3{font-size:19px}}
+@media(prefers-reduced-motion:reduce){.about-page .activity-card>img{transition:none}}
+
+/* Goshen reference: strong dark opening, spacious story sections and a clear visit close. */
+.about-page .page-hero{max-width:none;margin:0;padding:72px max(48px,calc((100vw - 1144px)/2)) 78px;background:#24221e;color:#fffdf8}
+.about-page .page-hero .eyebrow{color:#edbf65}
+.about-page .page-hero h1{font-size:clamp(48px,5.2vw,68px);color:#fffdf8}
+.about-page .page-hero .soar{color:#edbf65}
+.about-page .page-hero p{color:#e4ddd0;max-width:490px}
+.about-page .page-hero .button{background:#edbf65;color:#24221e}
+.about-page .page-hero .button:hover{background:#f4d58f}
+.about-page .page-hero>img{height:440px;border-radius:18px;box-shadow:0 24px 60px #0003;object-position:center 36%}
+.about-page .about-intro{padding-top:82px;padding-bottom:82px}
+.about-page .activities{padding-top:84px;padding-bottom:84px}
+.about-page .campus-story{padding-top:42px;padding-bottom:96px}
+@media(max-width:850px){.about-page .page-hero{padding:58px 32px 64px}.about-page .page-hero>img{height:370px}}
+@media(max-width:650px){.about-page .page-hero{padding:43px 22px 46px}.about-page .page-hero h1{font-size:44px}.about-page .page-hero>img{height:310px;border-radius:14px}.about-page .about-intro{padding-top:52px;padding-bottom:52px}.about-page .activities{padding-top:52px;padding-bottom:52px}.about-page .campus-story{padding-top:12px;padding-bottom:58px}}
+
+/* Full page treatment, following the Goshen reference's dark bookends and open sections. */
+.about-page .header{max-width:none;margin:0;padding-left:max(48px,calc((100vw - 1144px)/2));padding-right:max(48px,calc((100vw - 1144px)/2));background:#24221e;color:#fffdf8}
+.about-page .header .school-logo{border-radius:50%;background:#fffdf8}
+.about-page .header nav a[aria-current="page"]{color:#edbf65;text-decoration-color:#edbf65}
+.about-page .header nav .button{background:#edbf65;color:#24221e}
+.about-page .header .menu{border-color:#716757;color:#fffdf8}
+.about-page .about-intro{max-width:none;margin:0;background:#fffdf8;padding:88px max(48px,calc((100vw - 1144px)/2));grid-template-columns:minmax(180px,.72fr) minmax(0,1.28fr);column-gap:clamp(36px,7vw,88px);row-gap:0}
+.about-page .about-intro .eyebrow{grid-column:1;grid-row:1 / span 3}
+.about-page .about-intro h2{font-size:clamp(36px,4.1vw,50px);margin:0 0 22px}
+.about-page .about-intro p{font-size:17px;line-height:1.8;margin:0 0 12px}
+.about-page .activities{max-width:none;margin:0;background:#f7f1e6;padding:84px max(48px,calc((100vw - 1144px)/2)) 90px}
+.about-page .activities .section-top,.about-page .activity-grid,.about-page .activities>.embed-note{max-width:1144px;margin-left:auto;margin-right:auto}
+.about-page .activities .section-top{margin-bottom:38px}
+.about-page .activities .section-top>p{color:#625d54}
+.about-page .activity-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:38px 24px}
+.about-page .activity-card>img{aspect-ratio:1.14;border-radius:12px}
+.about-page .activity-content .eyebrow{font-size:9px}
+.about-page .activity-content h3{font-size:19px}
+.about-page .activities>.embed-note{margin-top:32px;color:#625d54}
+.about-page .campus-story{max-width:none;margin:0;background:#24221e;color:#fffdf8;padding:78px max(48px,calc((100vw - 1144px)/2)) 82px;grid-template-columns:minmax(0,1.12fr) minmax(0,.88fr);gap:clamp(38px,7vw,88px)}
+.about-page .campus-story>img{width:100%;height:400px;object-fit:cover;border-radius:12px;box-shadow:0 22px 55px #0003}
+.about-page .campus-story .eyebrow{color:#edbf65}
+.about-page .campus-story h2{font-size:clamp(36px,4vw,48px);color:#fffdf8}
+.about-page .campus-story p{color:#e4ddd0}
+.about-page .campus-story .button{background:#edbf65;color:#24221e}
+.about-page footer.wrap{max-width:none;margin:0;padding:48px max(48px,calc((100vw - 1144px)/2)) 20px;background:#1d1c19;color:#fffdf8;border-top:0}
+.about-page footer .footer-main{padding-bottom:30px}
+.about-page footer .footer-main>p,.about-page footer .footer-bottom{color:#c8c0b2}
+.about-page footer .footer-bottom{border-top:1px solid #ffffff25}
+@media(max-width:850px){.about-page .header{padding-left:32px;padding-right:32px}.about-page .about-intro,.about-page .activities,.about-page .campus-story,.about-page footer.wrap{padding-left:32px;padding-right:32px}.about-page .about-intro{column-gap:36px}.about-page .activity-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:650px){.about-page .header{padding-left:22px;padding-right:22px}.about-page .header nav{background:#fffdf8;color:#24221e}.about-page .about-intro{display:grid;grid-template-columns:1fr;padding:52px 22px}.about-page .about-intro .eyebrow{grid-column:1;grid-row:auto;padding:0;margin-bottom:14px}.about-page .about-intro h2,.about-page .about-intro p{grid-column:1}.about-page .about-intro h2{font-size:32px;margin-bottom:16px}.about-page .about-intro p{font-size:16px}.about-page .activities{padding:52px 22px 56px}.about-page .activities .section-top{margin-bottom:27px}.about-page .activity-grid{grid-template-columns:1fr;gap:27px}.about-page .activity-card>img{aspect-ratio:1.28}.about-page .activity-content h3{font-size:20px}.about-page .campus-story{grid-template-columns:1fr;padding:48px 22px 54px;gap:27px}.about-page .campus-story>img{height:290px}.about-page .campus-story h2{font-size:34px}.about-page footer.wrap{padding:42px 22px 20px}}
+
+/* About page core values use the same restrained cream, charcoal and gold palette. */
+.about-page .about-intro{background:#fffdf8}
+.about-page .about-values{max-width:none;margin:0;background:#fffdf8;padding:18px max(48px,calc((100vw - 1144px)/2)) 92px}
+.about-page .about-values .section-top,.about-page .about-value-grid{max-width:1144px;margin-left:auto;margin-right:auto}
+.about-page .about-values .section-top{margin-bottom:34px}
+.about-page .about-values .section-top .eyebrow,.about-page .about-value-number{color:#9a671b}
+.about-page .about-values .section-top h2{font-size:clamp(36px,4vw,48px)}
+.about-page .about-values .section-top>p{color:#625d54}
+.about-page .about-value-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.about-page .about-value-card{min-height:200px;padding:26px 25px;background:#fffdf8;border:1px solid #e6dfd2;border-radius:14px;transition:border-color .25s,transform .25s}
+.about-page .about-value-card:hover{transform:translateY(-3px);border-color:#c8a86d}
+.about-page .about-value-number{font-size:11px;font-weight:800;letter-spacing:1.5px}
+.about-page .about-value-card h3{font-size:20px;margin:25px 0 10px;letter-spacing:-.35px}
+.about-page .about-value-card p{font-size:15px;line-height:1.75;color:#625d54;max-width:280px}
+.about-page .campus-story,.about-page footer.wrap{background:#24221e}
+@media(max-width:850px){.about-page .about-values{padding:20px 32px 72px}.about-page .about-value-grid{grid-template-columns:1fr;gap:14px}.about-page .about-value-card{min-height:0}.about-page .about-value-card h3{margin-top:16px}}
+@media(max-width:650px){.about-page .about-values{padding:12px 22px 54px}.about-page .about-values .section-top{margin-bottom:24px}.about-page .about-values .section-top>p{font-size:15px}.about-page .about-value-grid{gap:12px}.about-page .about-value-card{padding:21px}.about-page .about-value-card h3{font-size:19px}}
+
+/* Keep About page colors consistent with the shared Ceema theme. */
+.about-page .header{background:var(--cream);color:var(--ink)}
+.about-page .header .school-logo{border-radius:0;background:transparent}
+.about-page .header nav a[aria-current="page"]{color:var(--purple);text-decoration-color:var(--purple)}
+.about-page .header nav .button{background:var(--ink);color:var(--yellow)}
+.about-page .header .menu{border-color:#e6d9be;color:var(--ink)}
+.about-page .page-hero{background:var(--cream);color:var(--ink)}
+.about-page .page-hero .eyebrow,.about-page .about-values .section-top .eyebrow,.about-page .campus-story .eyebrow{color:var(--purple)}
+.about-page .page-hero h1,.about-page .campus-story h2{color:var(--ink)}
+.about-page .page-hero .soar{color:var(--purple)}
+.about-page .page-hero p,.about-page .campus-story p{color:#756d60}
+.about-page .page-hero>img{border:8px solid #efdfb9;border-radius:110px 24px 24px 24px;box-shadow:12px 14px 0 #e9d5ab70,0 22px 40px #59451e14}
+.about-page .page-hero .button,.about-page .page-hero .button:hover,.about-page .campus-story .button{background:var(--ink);color:var(--yellow)}
+.about-page .about-intro,.about-page .about-values{background:var(--cream)}
+.about-page .about-value-card{background:#fff;border-color:#e6dfd2}
+.about-page .about-value-number{color:var(--purple)}
+.about-page .campus-story{background:#f4e7cb;color:var(--ink)}
+.about-page .campus-story>img{border:1px solid #e7ddcb;box-shadow:0 15px 35px #59451e12}
+.about-page footer.wrap{background:var(--cream);color:var(--ink);border-top:1px solid #e6dac4}
+.about-page footer .footer-main>p,.about-page footer .footer-bottom{color:#817665}
+.about-page footer .footer-bottom{border-color:#e6dfd2}
+@media(max-width:650px){.about-page .page-hero>img{border-radius:70px 20px 20px 20px}}
+
+/* Small nursery-inspired details keep the page warm without changing its core palette. */
+.about-page .page-hero .soar{position:relative}
+.about-page .page-hero .soar:after{content:"";display:block;width:82%;height:4px;margin:3px 0 0 2px;border-radius:50%;background:var(--yellow);transform:rotate(-2deg)}
+.about-page .about-values .section-top h2{position:relative}
+.about-page .about-values .section-top h2:after{content:"✦";position:absolute;margin-left:14px;margin-top:4px;color:#edbf65;font-family:'DM Sans',sans-serif;font-size:20px;transform:rotate(12deg)}
+.about-page .about-value-card{position:relative;overflow:hidden;border-radius:20px 20px 20px 6px;box-shadow:0 7px 18px #59451e08}
+.about-page .about-value-card:after{content:"";position:absolute;width:88px;height:88px;right:-43px;top:-43px;border:1px solid #edbf6570;border-radius:50%;pointer-events:none}
+.about-page .about-value-number{display:inline-block;vertical-align:top;margin-top:6px}
+.about-page .about-value-icon{width:46px;height:46px;display:grid;place-items:center;border-radius:15px 15px 15px 5px;margin-top:13px}
+.about-page .about-value-icon svg{width:25px;height:25px}
+.about-page .about-value-icon.wonder{background:#fff0bb;color:#805719}
+.about-page .about-value-icon.belong{background:#f7e0e6;color:#9a5264}
+.about-page .about-value-icon.grow{background:#dceddf;color:#527c63}
+.about-page .about-value-card h3{margin-top:16px}
+.about-page .about-value-card:nth-child(2){border-radius:6px 20px 20px 20px}
+.about-page .about-value-card:nth-child(3){border-radius:20px 6px 20px 20px}
+@media(max-width:650px){.about-page .about-values .section-top h2:after{font-size:16px;margin-left:9px}.about-page .about-value-icon{margin-top:11px}}
+@media(prefers-reduced-motion:reduce){.about-page .about-value-card{transition:none}}
+
+.about-page .about-vision{max-width:none;margin:0;padding:78px max(48px,calc((100vw - 1144px)/2));display:grid;grid-template-columns:1fr 1fr;gap:clamp(36px,7vw,88px);align-items:center;background:#f4e7cb}
+.about-page .about-vision-copy .eyebrow,.about-page .about-goals>.eyebrow{color:var(--purple)}
+.about-page .about-vision-copy h2{font-size:clamp(34px,4vw,46px);line-height:1.15;margin:17px 0 18px}
+.about-page .about-vision-copy p{max-width:470px;color:#756d60;font-size:17px;line-height:1.8}
+.about-page .about-goals{padding:28px 32px;background:var(--cream);border:1px solid #e4cca0;border-radius:18px}
+.about-page .about-goals ul{list-style:none;padding:0;margin:14px 0 0;counter-reset:goals}
+.about-page .about-goals li{counter-increment:goals;position:relative;padding:15px 0 15px 42px;border-top:1px solid #e6dfd2;font-size:15px;line-height:1.6;color:var(--ink)}
+.about-page .about-goals li:before{content:counter(goals,decimal-leading-zero);position:absolute;left:0;top:16px;color:var(--purple);font-size:11px;font-weight:800;letter-spacing:1px}
+@media(max-width:850px){.about-page .about-vision{grid-template-columns:1fr;padding:62px 32px;gap:28px}.about-page .about-goals{max-width:none}}
+@media(max-width:650px){.about-page .about-vision{padding:48px 22px;gap:23px}.about-page .about-vision-copy h2{font-size:31px}.about-page .about-vision-copy p{font-size:16px}.about-page .about-goals{padding:22px}.about-page .about-goals li{font-size:14px}}
+
+/* Nursery-inspired hero motion and a small flower mark on the welcome section. */
+.about-page .about-rotating-word{min-width:8.8em;font-size:.88em;vertical-align:baseline}
+.about-page .about-rotating-word .word-stage{height:1.3em;vertical-align:baseline}
+.about-page .about-rotating-word .word-current{color:var(--word-color,var(--purple))}
+.about-page .about-rotating-word:after{display:none}
+.about-page .about-intro{position:relative;overflow:hidden}
+.about-page .about-intro h2{position:relative;z-index:1;max-width:calc(100% - 50px)}
+.about-page .about-intro h2:after{content:"";display:block;width:94px;height:4px;margin-top:12px;border-radius:50%;background:#edbf65;transform:rotate(-2deg)}
+.about-page .welcome-flower{position:absolute;top:62px;right:max(48px,calc((100vw - 1144px)/2));width:68px;height:68px;transform:rotate(-8deg)}
+.about-page .welcome-flower svg{display:block;width:100%;height:100%}
+@media(max-width:850px){.about-page .welcome-flower{right:32px;width:58px;height:58px}}
+@media(max-width:650px){.about-page .about-rotating-word{min-width:0;width:8.8em;font-size:.82em}.about-page .about-intro h2{max-width:calc(100% - 52px)}.about-page .welcome-flower{top:42px;right:20px;width:44px;height:44px}}
+@media(prefers-reduced-motion:reduce){.about-page .about-rotating-word .word-current{transition:none}}
+.about-page .page-hero .about-rotating-word:after{display:none}
+.about-page .about-values .section-top h2:after{content:"";width:13px;height:13px;left:calc(100% + 12px);top:5px;margin:0;background:var(--yellow);clip-path:polygon(50% 0,61% 36%,100% 50%,61% 62%,50% 100%,39% 62%,0 50%,39% 36%);transform:rotate(12deg)}
