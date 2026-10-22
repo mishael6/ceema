@@ -19,8 +19,6 @@ nav.querySelectorAll('a').forEach(link => {
 const carousel = document.querySelector('.school-carousel');
 if (carousel) {
   const slides = [...carousel.querySelectorAll('.gallery-slide')];
-  const dots = [...carousel.querySelectorAll('[data-slide]')];
-  const toggle = carousel.querySelector('#slide-toggle');
   const motionPreference = matchMedia('(prefers-reduced-motion: reduce)');
   let slideIndex = 0;
   let paused = motionPreference.matches;
@@ -37,25 +35,16 @@ if (carousel) {
       const active = index === slideIndex;
       slide.classList.toggle('is-active',active);
       slide.setAttribute('aria-hidden',String(!active));
-      slide.querySelector('a').tabIndex = active ? 0 : -1;
-      dots[index].setAttribute('aria-pressed',String(active));
     });
-    if (manual) carousel.querySelector('#slide-status').textContent = `Photo ${slideIndex + 1} of ${slides.length}: ${slides[slideIndex].querySelector('h3').textContent}`;
     scheduleSlide();
   }
-  function updateToggle() { toggle.textContent = paused ? 'Play slideshow' : 'Pause slideshow'; }
-  carousel.querySelector('#slide-prev').addEventListener('click',()=>showSlide(slideIndex - 1,true));
-  carousel.querySelector('#slide-next').addEventListener('click',()=>showSlide(slideIndex + 1,true));
-  dots.forEach((dot,index)=>dot.addEventListener('click',()=>showSlide(index,true)));
-  toggle.addEventListener('click',()=>{paused=!paused;updateToggle();scheduleSlide();});
   carousel.addEventListener('mouseenter',()=>{hovering=true;scheduleSlide();});
   carousel.addEventListener('mouseleave',()=>{hovering=false;scheduleSlide();});
   carousel.addEventListener('focusin',()=>clearTimeout(timer));
   carousel.addEventListener('focusout',()=>setTimeout(scheduleSlide,0));
   document.addEventListener('visibilitychange',scheduleSlide);
-  motionPreference.addEventListener('change',()=>{paused=motionPreference.matches;updateToggle();scheduleSlide();});
+  motionPreference.addEventListener('change',()=>{paused=motionPreference.matches;scheduleSlide();});
   new IntersectionObserver(entries=>{inView=entries[0].isIntersecting;scheduleSlide();},{threshold:.15}).observe(carousel);
-  updateToggle();
 }
 const enquiryForm = document.querySelector('#enquiry-form');
 if (enquiryForm) {
@@ -218,7 +207,7 @@ if (document.body.classList.contains('interior-page')) {
   progress.setAttribute('aria-hidden','true');
   document.body.append(progress);
   const photos = [...document.querySelectorAll('.campus-photo,.page-hero>img,.campus-story>img,.school-why>img')];
-  const accents = [...document.querySelectorAll('.contact-row,.contact-socials .social-link,.about-intro .eyebrow,.about-intro h2,.about-intro p,.campus-story>div>*')];
+  const accents = [...document.querySelectorAll('.contact-row,.about-intro .eyebrow,.about-intro h2,.about-intro p,.campus-story>div>*')];
   const observer = new IntersectionObserver(entries => entries.forEach(entry => {
     if (entry.isIntersecting) {
       if (entry.target.dataset.motionSeen) entry.target.classList.add('motion-return');
@@ -349,11 +338,12 @@ if (document.body.classList.contains('interior-page')) {
     const rect = hero.getBoundingClientRect();
     const progress = Math.min(1,Math.max(0,(110-rect.top)/Math.max(rect.height*.65,1)));
     art.style.setProperty('--hero-settle',progress.toFixed(3));
+    art.style.setProperty('--hero-photo-settle',`${(-8*progress).toFixed(2)}px`);
   }
   if(hero){
     addEventListener('scroll',()=>{if(!frame)frame=requestAnimationFrame(settleHero);},{passive:true});
     addEventListener('resize',settleHero,{passive:true});
-    reduced.addEventListener('change',()=>{art.style.removeProperty('--hero-settle');settleHero();});
+    reduced.addEventListener('change',()=>{art.style.removeProperty('--hero-settle');art.style.removeProperty('--hero-photo-settle');settleHero();});
     settleHero();
   }
   function closeNavigation(restoreFocus=false){
@@ -376,7 +366,6 @@ if (document.body.classList.contains('interior-page')) {
     let visible = false;
     let hovering = false;
     const groups = [...heroArt.querySelectorAll('[data-hero-slides]')].map((element,index)=>({element,slides:[...element.querySelectorAll('.hero-slide')],index:0,timer:null,delay:6500+index*1800}));
-    const miniLinks = ['https://www.instagram.com/ceemaeaglesacademy/p/DDB2PVrtN_2/','https://www.instagram.com/ceemaeaglesacademy/p/DDB07EvN4gS/','https://www.instagram.com/ceemaeaglesacademy/p/DBxAy8BNH5X/'];
     function schedule(){
       groups.forEach(queueGroup);
     }
@@ -389,7 +378,6 @@ if (document.body.classList.contains('interior-page')) {
         if(paused || !visible || hovering || document.hidden || heroArt.contains(document.activeElement))return;
         group.index=next;
         group.slides.forEach((slide,i)=>{slide.classList.toggle('is-active',i===next);slide.setAttribute('aria-hidden',String(i!==next));});
-        if(group.element.dataset.heroSlides==='mini')heroArt.querySelector('.hero-photo').href=miniLinks[next];
         queueGroup(group);
       },group.delay);
     }
